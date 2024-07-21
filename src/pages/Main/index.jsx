@@ -20,13 +20,13 @@ const Main = () => {
           maxSize={1048576}
           multiple={false}
           viewUpload={
-            <div className="flex_center flex-col gap-2 transition min-h-[220px] max-w-[50%] rounded-classic p-5 border-2 border-dashed border-viridian hover:bg-alabaster">
+            <div className="flex_center flex-col gap-2 transition min-h-[220px] max-w-[50%] rounded-classic p-5 border-2 border-dashed border-viridian hover:bg-alabaster max-sm:max-w-[80%]">
               <CloudDownloadIcon
                 fontSize="large"
                 style={{ color: '#458f79', width: '40px', height: '40px' }}
               />
               <div className="flex-col text-center text-lg font-semibold mb-2 mt-3">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 max-sm:flex-col">
                   Drag & Drop or
                   <Button>
                     <FileDownloadIcon fontSize="small" />
