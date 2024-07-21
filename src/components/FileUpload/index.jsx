@@ -15,29 +15,27 @@ const FileUpload = ({ viewUpload, maxSize, setFiles }) => {
     toast.error(message || 'Oops, something went wrong');
   };
 
-  const onDrop = useCallback(
-    acceptedFiles => {
-      const file = acceptedFiles[0];
+  const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
+    const file = acceptedFiles.at(0) || rejectedFiles.at(0) || null;
 
-      if (file.size > maxSize) {
-        onError('File size exceeds required size');
-        return;
-      }
+    if (file.errors) {
+      const errorMessage =
+        file.errors.at(0)?.code === 'file-invalid-type'
+          ? 'Invalid JSON file'
+          : file.errors.at(0)?.message;
 
-      const reader = new FileReader();
-      reader.onload = e => {
-        try {
-          const json = JSON.parse(e.target.result);
-          onSuccess('File is successfully uploaded');
-          setAddedFiles(json);
-        } catch (err) {
-          onError('Invalid JSON file');
-        }
-      };
-      reader.readAsText(file);
-    },
-    [maxSize],
-  );
+      onError(errorMessage);
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = e => {
+      const json = JSON.parse(e.target.result);
+      onSuccess('File is successfully uploaded');
+      setAddedFiles(json);
+    };
+    reader.readAsText(file);
+  }, []);
 
   const { getRootProps, getInputProps, open } = useDropzone({
     onDrop,
