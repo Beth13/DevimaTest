@@ -1,0 +1,30 @@
+.btn_wrapper {
+  @apply inline-flex;
+  @apply justify-center;
+  @apply items-center;
+  @apply gap-2;
+  @apply border-[1px];
+  @apply rounded-classic;
+  @apply min-w-[80px];
+  @apply flex-shrink-0;
+  @apply transition;
+  @apply p-0;
+}
+
+/* themes */
+.viridianContained {
+  @apply bg-viridian;
+  @apply text-white;
+  @apply border-viridian;
+  @apply hover:bg-stromboli;
+  @apply hover:border-stromboli;
+}
+
+/* sizes */
+.sm {
+  @apply py-2;
+  @apply px-3;
+  @apply text-sm;
+  @apply font-medium;
+  @apply tracking-tighter;
+}

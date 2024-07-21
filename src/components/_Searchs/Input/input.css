@@ -1,0 +1,12 @@
+.input {
+  @apply h-[38px];
+  @apply max-w-[50%];
+  @apply p-2;
+  @apply border-[1px];
+  @apply border-viridian;
+  @apply bg-white;
+  @apply text-black;
+  @apply rounded-classic;
+  @apply hover:border-stromboli;
+  @apply outline-stromboli;
+}

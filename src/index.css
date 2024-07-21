@@ -1,0 +1,9 @@
+@import '../src/assets/styles/global.css';
+@import '../src/components/_Buttons/Button/button.css';
+@import '../src/components/_Searchs/Input/input.css';
+
+@import 'react-toastify/dist/ReactToastify.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
